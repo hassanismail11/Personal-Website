@@ -1,0 +1,24 @@
+<%- include('partials/header'); -%>
+
+<div id="particles-js">
+
+    <% posts.forEach(function(post){%>
+    <article>
+        <h1>
+            <a href="/posts/<%= post.postURL %>">
+                <%= post.postTitle%> </a>
+        </h1>
+
+        <span class="post-date"> <%=post.postDate %> </span>
+
+        <p>
+            <%= post.postContent.substring(0, 4000)%>
+            <a class="read-more-link"
+                href="/posts/<%= post.postURL%>">...Read More</a>
+        </p>
+    </article>
+    <%});%>
+
+</div>
+
+<%- include('partials/footer'); -%>
