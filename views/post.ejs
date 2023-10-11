@@ -1,9 +1,45 @@
 <%- include('partials/header'); -%>
 
-<h1> <%= postPage[0].postTitle %> </h1>
+<body>
 
-<span class="post-date"> <%=postPage[0].postDate%> </span>
+    <main class="s-home ">
 
-<p> <%= postPage[0].postContent %> </p>
+        <div id="particles-js" class="home-particles"></div>
+        
+        <div class="gradient-overlay"></div>
 
-<%- include('partials/footer'); -%>
+        <div class="home-content">
+
+            <div class="home-logo">
+                <a href="/">
+                    <img src="/images/logo.svg" alt="Homepage">
+                </a>
+            </div>
+
+            <div class="row home-content__main">
+
+                <div class="col-twelve home-content__text pull-right">
+                    <h1> <%= postPage[0].postTitle %> </h1>
+
+                    <span class="post-date"> <%=postPage[0].postDate%> </span>
+
+                    <p id="blog-paragraph"> <%= postPage[0].postContent %> </p>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/polygons.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

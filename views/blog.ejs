@@ -1,0 +1,54 @@
+<%- include('partials/header'); -%>
+
+<body id="blog-body">
+
+    <main class="s-home s-home--particles">
+
+        <div id="particles-js" class="home-particles"></div>
+        
+        <div class="gradient-overlay"></div>
+
+        <div class="home-content">
+
+            <div id="blog-logo" class="home-logo">
+                <a href="/">
+                    <img src="images/logo.svg" alt="Homepage">
+                </a>
+            </div>   
+
+            <% posts.forEach(function(post){%>
+
+                <div class="row">
+                    <div class="col-twelve home-content__text">
+                        <article>
+                            <h2>
+                                <a href="/<%= post.postURL %>">
+                                    <%= post.postTitle%> </a>
+                            </h2>
+                        
+                            <span class="post-date"> <%=post.postDate %> </span>
+        
+                            <p id="blog-paragraph">
+                                <%= post.postContent.substring(0, 4000)%>
+                                <a class="read-more-link"
+                                    href="/<%= post.postURL%>">...Read More</a>
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            <%});%>
+
+        </div>
+
+    </main>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/polygons.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

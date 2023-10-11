@@ -49,9 +49,21 @@ function getDate() {
 /* Home Page */
 
 app.get("/", function (req, res) {
+  res.render("home");
+});
+
+/* Blog Page */
+
+app.get("/blog", function (req, res) {
   Post.find({})
     .sort({ postTitle: 1 })
-    .then((blogPosts) => res.render("home", { posts: blogPosts }));
+    .then((blogPosts) => res.render("blog", { posts: blogPosts }));
+});
+
+/* Work Page */
+
+app.get("/mywork", function (req, res) {
+  res.render("about", { aboutContent: aboutContent });
 });
 
 /* About Page */
@@ -64,6 +76,10 @@ app.get("/about", function (req, res) {
 
 app.get("/contact", function (req, res) {
   res.render("contact", { contactContent: contactContent });
+});
+
+app.post("/contact", function (req, res) {
+  console.log(req.body.EMAIL);
 });
 
 /* Compose Page */
@@ -79,7 +95,7 @@ app.post("/compose", function (req, res) {
 
 /* Post Page */
 
-app.get("/posts/:posttitle", function (req, res) {
+app.get("/:posttitle", function (req, res) {
   Post.find({ postURL: req.params.posttitle }).then((foundPost) =>
     res.render("post", { postPage: foundPost })
   );
