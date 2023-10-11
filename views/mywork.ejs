@@ -19,19 +19,20 @@
             <div id="workContainer" class="container">
                 <div class="row">
 
-                    <% posts.forEach(function(post){%>
+                    <% works.forEach(function(work){%>
 
                     <div id="workCard" class="card col-md-12 p-3">
                         <div class="row ">
-                            <div id="postCont" class="col-md-8">
+                            <div class="col-md-4">
+                                <img class="w-100"
+                                    src="<%= work.workImageURL %>">
+                                <span class="post-date"><%= work.workDate %></span>
+                            </div>
+                            <div class="col-md-8">
                                 <div class="card-block">
-                                    <h3 id="postTitle" class="card-title">
-                                        <a href="/posts/<%= post.postURL %>">
-                                            <%= post.postTitle%> </a>
-                                        </h3>
-                                    <p class="card-text text-justify">
-                                        <%= post.postContent.substring(0, 4000)%></p>
-                                    <a href="/posts/<%= post.postURL%>"
+                                    <h3 class="card-title"><%= work.workTitle %></h3>
+                                    <p class="card-text text-justify"><%= work.workContent %></p>
+                                    <a href="/myworks/<%= work.workURL %>"
                                         class="btn btn-primary">read more...</a>
                                 </div>
                             </div>
